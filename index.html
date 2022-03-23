@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora de Monedas</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="Titulo">
+        <h1>Conversor de Monedas</h1>
+      </div>
+    </header>
+    <main class="main">
+      <div class="cajaForm">
+        <form class="formulario" action="index.html" method="post">
+          <p>Ingrese el monto en pesos que desa convertir</p>
+          <input type="text" class="pesoIngresado" name="monto" placeholder="Ingrese su monto">
+          <p>Seleccione las monedas a las cuales quiere convertir</p>
+          <p>Dolar</p>
+          <input type="checkbox" name="dolar" class="checkDolar">
+          <p>Euro</p>
+          <input type="checkbox" name="euro" class="checkEuro">
+          <p>Sol</p>
+          <input type="checkbox" name="sol" class="checkSol">
+          <p>Real</p>
+          <input type="checkbox" name="real" class="checkReal">
+          <input type="button" name="boton" value="Calcular" class="button" onclick="datos()">
+        </form>
+      </div>
+      <div class="lista">
+        <ul class="listaPadre">
+
+        </ul>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
