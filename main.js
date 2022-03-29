@@ -1,9 +1,11 @@
 // Primero le pido que introduzca el numero
 // Verifico si realmente introdujo un numero
 // Agarro el numero y le calculo las distintas cotizaciones a monedas
+// Consulto al local storage si tiene elementos dentro, si no entonces lo declaro.
 if (localStorage.getItem("elementosConsultados")== null){
   localStorage.setItem("elementosConsultados", `No Hay Registros`)
 }
+
 const arrayHistorial = localStorage.getItem("elementosConsultados").split(",");
 let listaHisto = document.querySelector(".listaHistorial");
 
