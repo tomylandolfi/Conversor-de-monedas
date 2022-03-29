@@ -2,9 +2,18 @@
 // Verifico si realmente introdujo un numero
 // Agarro el numero y le calculo las distintas cotizaciones a monedas
 
+const arrayHistorial = localStorage.getItem("elementosConsultados").split(",");
+let listaHisto = document.querySelector(".listaHistorial");
 
+for (const el of arrayHistorial){
+  let li = document.createElement("li");
+  li.innerHTML= el;
+  listaHisto.append(li);
+}
 
 function datos (){
+
+
   
   let peso = parseFloat(document.querySelector(".pesoIngresado").value);
 
@@ -59,15 +68,12 @@ function datos (){
   let longitud = arrayMonedas.length
 
   const arrayResultado = [];
-
+  
   for (let i = 0; i < longitud; i++) {
     let resultado = arrayMonedas[i].valor * peso
     let textos = arrayMonedas[i].texto;
-    arrayResultado.push(`El monto equivale a ${resultado} ${textos}`);
-}
-
-
-
+    arrayResultado.push(`$ ${peso} equivalen a ${resultado} ${textos}`);
+  }
   let listaP = document.querySelector(".listaPadre");
   for(const resultados of arrayResultado){
     let li = document.createElement("li");
@@ -75,8 +81,16 @@ function datos (){
     listaP.append(li);
   }
 
+  const guardarLocal = (clave,valor) => {localStorage.setItem(clave, valor)};
+
+  guardarLocal("elementosConsultados",arrayResultado);
+
+  
 
 }
 
 let botonapretar = document.getElementById("boton");
 botonapretar.onclick = () => datos();
+
+
+

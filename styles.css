@@ -4,7 +4,7 @@ body{
  align-items: center;
 }
 
-.Titulo, input, p, li{
+.Titulo, input, p, li, h2{
   font-family: sans-serif;
 }
 
@@ -14,7 +14,7 @@ body{
   align-items: center;
 }
 
-ul{
+ul, .historial, .listaHistorial{
   display: flex;
   flex-direction: column;
   align-items: center;
