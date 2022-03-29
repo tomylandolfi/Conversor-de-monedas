@@ -5,6 +5,7 @@
 
 
 function datos (){
+  
   let peso = parseFloat(document.querySelector(".pesoIngresado").value);
 
   while (true) {
@@ -58,13 +59,13 @@ function datos (){
   let longitud = arrayMonedas.length
 
   const arrayResultado = [];
-  const arrayTextos = [];
 
   for (let i = 0; i < longitud; i++) {
     let resultado = arrayMonedas[i].valor * peso
     let textos = arrayMonedas[i].texto;
     arrayResultado.push(`El monto equivale a ${resultado} ${textos}`);
 }
+
 
 
   let listaP = document.querySelector(".listaPadre");
@@ -74,4 +75,8 @@ function datos (){
     listaP.append(li);
   }
 
+
 }
+
+let botonapretar = document.getElementById("boton");
+botonapretar.onclick = () => datos();
