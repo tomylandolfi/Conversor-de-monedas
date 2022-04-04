@@ -4,7 +4,7 @@ body{
  align-items: center;
 }
 
-.Titulo, input, p, li, h2{
+.Titulo, input, p, li, h2, .tostada{
   font-family: sans-serif;
 }
 

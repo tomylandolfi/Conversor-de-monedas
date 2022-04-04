@@ -1,9 +1,9 @@
 // Primero le pido que introduzca el numero
 // Verifico si realmente introdujo un numero
 // Agarro el numero y le calculo las distintas cotizaciones a monedas
-if (localStorage.getItem("elementosConsultados")== null){
-  localStorage.setItem("elementosConsultados", `No Hay Registros`)
-}
+
+localStorage.getItem("elementosConsultados")== null && localStorage.setItem("elementosConsultados", `No Hay Registros`)
+
 const arrayHistorial = localStorage.getItem("elementosConsultados").split(",");
 let listaHisto = document.querySelector(".listaHistorial");
 
@@ -11,6 +11,16 @@ for (const el of arrayHistorial){
   let li = document.createElement("li");
   li.innerHTML= el;
   listaHisto.append(li);
+}
+
+function cartel(){
+  Toastify({
+    text: "Ingrese un numero valido",
+    duration: 3000,
+    className:"tostada",
+    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    position: "center"
+  }).showToast();
 }
 
 function datos (){
@@ -25,8 +35,8 @@ function datos (){
       break
     }else{
       //No es un numero por lo que se solicita que ingrese un numero hasta que el mismo sea valido.
-      alert("Ingrese un numero valido")
-      break
+      cartel();
+      return
     }
   };
   //Creo la clase moneda para luego definirlas
