@@ -2,7 +2,9 @@
 // Verifico si realmente introdujo un numero
 // Agarro el numero y le calculo las distintas cotizaciones a monedas
 
-localStorage.getItem("elementosConsultados")== null && localStorage.setItem("elementosConsultados", `No Hay Registros`)
+if(localStorage.getItem("elementosConsultados")== null){
+  localStorage.setItem("elementosConsultados", `No Hay Registros`)
+} ;
 
 const arrayHistorial = localStorage.getItem("elementosConsultados").split(",");
 let listaHisto = document.querySelector(".listaHistorial");
