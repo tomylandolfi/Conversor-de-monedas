@@ -49,11 +49,23 @@ function datos (){
       this.texto=texto;
     }
   };
-  //Creo los objetos
-  const dolar = new moneda("Dolar",106.50,"dolares");
-  const euro = new moneda("Euro",119.53,"euros");
-  const sol = new moneda("Sol",3.78,"soles");
-  const real = new moneda("Real",20.81,"reales");
+
+  
+  async function getMonedas(){
+      let monedas = await fetch("http://api.exchangeratesapi.io/v1/latest?access_key=14c093b656ddb55bb02c0ccc7fce01c7&symbols=USD,ARS,BRL,PEN&format=1");
+      const datosMonedas = await monedas.json();
+      return datosMonedas.rates;
+  }
+  getMonedas().then( (valores) => {
+    let datosValores = valores; 
+    const arrayValores = [
+      datosValores.USD/datosValores.ARS, 1/datosValores.ARS, datosValores.PEN/datosValores.ARS, datosValores.BRL/datosValores.ARS
+    ]
+    //Creo los objetos
+  const dolar = new moneda("Dolar",arrayValores[0],"dolares");
+  const euro = new moneda("Euro",arrayValores[1],"euros");
+  const sol = new moneda("Sol",arrayValores[2],"soles");
+  const real = new moneda("Real",arrayValores[3],"reales");
   //Creo el array vacio
   const arrayMonedas = [];
 
@@ -98,6 +110,10 @@ function datos (){
   const guardarLocal = (clave,valor) => {localStorage.setItem(clave, valor)};
 
   guardarLocal("elementosConsultados",arrayResultado);
+  } )
+  
+  
+  
 
   
 
